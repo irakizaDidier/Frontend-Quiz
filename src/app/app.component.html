@@ -1,0 +1,16 @@
+<div class="container">
+  <div *ngIf="!selectedQuiz">
+    <section class="section">
+      <div class="section-title">
+        <h1> <span class="font-normal">Welcome to the</span>
+          Frontend Quiz!</h1>
+      </div>
+      <app-quiz-selection
+        (quizSelected)="onQuizSelected($event)"></app-quiz-selection>
+    </section>
+  </div>
+  <div *ngIf="selectedQuiz">
+    <app-quiz [quiz]="selectedQuiz"
+      (quizRestarted)="onQuizRestarted()"></app-quiz>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div *ngIf="quiz">
+  <h2 class="quiz-header">
+    <img *ngIf="quiz.icon" [src]="quiz.icon" alt="{{ quiz.title }}"
+      class="quiz-icon" />
+    {{ quiz.title }}
+  </h2>
+  <div *ngIf="!showResults">
+    <div *ngIf="quiz.questions[currentQuestionIndex] as question"
+      class="question-container w-full">
+      <div class="w-1/2">
+        <p>Question {{ currentQuestionIndex + 1 }} of {{ quiz.questions.length
+          }}</p>
+        <p class="question">{{ question.question }}</p>
+      </div>
+      <div class="w-1/2">
+        <ul class="answers-list">
+          <li *ngFor="let option of question.options; let i = index"
+            [ngClass]="{
+              'correct': isCorrectAnswer(option),
+              'incorrect': isIncorrectAnswer(option),
+              'selected': selectedAnswer === option
+            }"
+            (click)="selectAnswer(option)">
+            <span class="answer-label">{{ 'ABCD'[i] }}.</span> {{ option }}
+          </li>
+        </ul>
+        <button (click)="submitAnswer()" [disabled]="!selectedAnswer">Submit
+          Answer</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showResults" class="score-section w-full">
+    <div class="w-1/2">
+      <h1> <span class="font-normal">Quiz
+          completed</span> <br>
+        You scored...</h1>
+    </div>
+    <div class="w-1/2">
+      <div class="mark-section ">
+        <h3>
+          <img *ngIf="quiz.icon" [src]="quiz.icon" alt="{{ quiz.title }}" />
+          {{ quiz.title }}
+        </h3>
+        <h1>{{ score }}</h1>
+        <p>out of {{ quiz.questions.length }}</p>
+
+      </div>
+      <button (click)="restartQuiz()">Play Again</button>
+    </div>
+  </div>
+</div>
