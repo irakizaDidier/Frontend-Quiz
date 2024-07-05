@@ -18,14 +18,16 @@
             [ngClass]="{
               'correct': isCorrectAnswer(option),
               'incorrect': isIncorrectAnswer(option),
-              'selected': selectedAnswer === option
+              'selected': selectedAnswer === option,
+              'no-answer': answerSubmitted && !selectedAnswer
             }"
             (click)="selectAnswer(option)">
             <span class="answer-label">{{ 'ABCD'[i] }}.</span> {{ option }}
           </li>
         </ul>
-        <button (click)="submitAnswer()" [disabled]="!selectedAnswer">Submit
+        <button (click)="submitAnswer()">Submit
           Answer</button>
+        <p class="nullanswer">{{nullanswer}}</p>
       </div>
     </div>
   </div>

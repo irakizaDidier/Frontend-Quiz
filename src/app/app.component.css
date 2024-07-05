@@ -1,8 +1,8 @@
 .section {
-  @apply flex;
+  @apply flex mt-7;
 }
 .section-title {
-  @apply flex items-center;
+  @apply flex;
 }
 h1 {
   font-size: 36px;

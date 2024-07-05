@@ -14,11 +14,14 @@
 
 .question-container {
   gap: 30px;
-  @apply flex text-left justify-start items-center;
+  display: flex;
+  text-align: left;
+  justify-content: start;
+  align-items: center;
 }
 .question {
   font-size: 27px;
-  @apply font-semibold;
+  font-weight: 600;
 }
 
 h2 {
@@ -67,10 +70,16 @@ li:hover {
 
 .correct {
   border-color: green;
+  background-color: #e6f9e8;
 }
 
 .incorrect {
   border-color: red;
+  background-color: #f9e6e6;
+}
+.nullanswer {
+  color: red;
+  @apply text-center;
 }
 
 .answer-label {
@@ -98,5 +107,11 @@ button:hover {
   gap: 20px;
 }
 .mark-section {
-  @apply flex rounded-md flex-col bg-white p-4 justify-center items-center;
+  display: flex;
+  border-radius: 0.375rem;
+  flex-direction: column;
+  background-color: white;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
 }

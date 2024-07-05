@@ -15,6 +15,8 @@ export class QuizComponent implements OnInit {
   showResults: boolean = false;
   selectedAnswer: string | null = null;
   score: number = 0;
+  answerSubmitted: boolean = false;
+  nullanswer = '';
 
   constructor() {}
 
@@ -22,6 +24,7 @@ export class QuizComponent implements OnInit {
 
   selectAnswer(answer: string): void {
     this.selectedAnswer = answer;
+    this.nullanswer = '';
   }
 
   submitAnswer(): void {
@@ -37,16 +40,18 @@ export class QuizComponent implements OnInit {
       if (isCorrect) {
         this.score++;
       }
-      this.selectedAnswer = null;
+      this.answerSubmitted = true;
 
       setTimeout(() => {
+        this.answerSubmitted = false;
         this.currentQuestionIndex++;
         if (this.currentQuestionIndex >= this.quiz!.questions.length) {
           this.showResults = true;
         }
+        this.selectedAnswer = null;
       }, 1000);
     } else {
-      alert('Please select an answer before submitting.');
+      this.nullanswer = 'Please select an answer.';
     }
   }
 
@@ -55,22 +60,31 @@ export class QuizComponent implements OnInit {
     this.results = [];
     this.showResults = false;
     this.score = 0;
+    this.nullanswer = '';
     this.quizRestarted.emit();
   }
 
   isCorrectAnswer(option: string): boolean {
-    if (!this.results[this.currentQuestionIndex - 1]) return false;
-    return (
-      this.results[this.currentQuestionIndex - 1].correctAnswer === option &&
-      this.results[this.currentQuestionIndex - 1].selectedAnswer === option
-    );
+    if (!this.results[this.currentQuestionIndex]) return false;
+    return this.results[this.currentQuestionIndex].correctAnswer === option;
+  }
+
+  isSelectedAnswer(option: string): boolean {
+    if (!this.results[this.currentQuestionIndex]) return false;
+    return this.results[this.currentQuestionIndex].selectedAnswer === option;
   }
 
   isIncorrectAnswer(option: string): boolean {
-    if (!this.results[this.currentQuestionIndex - 1]) return false;
+    if (!this.results[this.currentQuestionIndex]) return false;
     return (
-      this.results[this.currentQuestionIndex - 1].correctAnswer !== option &&
-      this.results[this.currentQuestionIndex - 1].selectedAnswer === option
+      this.results[this.currentQuestionIndex].correctAnswer !== option &&
+      this.results[this.currentQuestionIndex].selectedAnswer === option
     );
+  }
+
+  isCorrectAnswerForQuestion(option: string): boolean {
+    if (!this.quiz || !this.quiz.questions[this.currentQuestionIndex])
+      return false;
+    return this.quiz.questions[this.currentQuestionIndex].answer === option;
   }
 }
