@@ -17,6 +17,7 @@ export class QuizComponent implements OnInit {
   selectedAnswer: string | null = null;
   score: number = 0;
   answerSubmitted: boolean = false;
+  incorrectAnswerSelected: boolean = false;
   nullanswer = '';
 
   constructor(private darkModeService: DarkModeService) {}
@@ -40,20 +41,23 @@ export class QuizComponent implements OnInit {
       });
       if (isCorrect) {
         this.score++;
+      } else {
+        this.incorrectAnswerSelected = true;
       }
       this.answerSubmitted = true;
-
-      setTimeout(() => {
-        this.answerSubmitted = false;
-        this.currentQuestionIndex++;
-        if (this.currentQuestionIndex >= this.quiz!.questions.length) {
-          this.showResults = true;
-        }
-        this.selectedAnswer = null;
-      }, 1000);
     } else {
       this.nullanswer = 'Please select an answer.';
     }
+  }
+
+  nextQuestion(): void {
+    this.answerSubmitted = false;
+    this.incorrectAnswerSelected = false;
+    this.currentQuestionIndex++;
+    if (this.currentQuestionIndex >= this.quiz!.questions.length) {
+      this.showResults = true;
+    }
+    this.selectedAnswer = null;
   }
 
   restartQuiz(): void {
@@ -83,17 +87,15 @@ export class QuizComponent implements OnInit {
     );
   }
 
-  isCorrectAnswerForQuestion(option: string): boolean {
-    if (!this.quiz || !this.quiz.questions[this.currentQuestionIndex])
-      return false;
-    return this.quiz.questions[this.currentQuestionIndex].answer === option;
-  }
-
   toggleDarkMode(): void {
     this.darkModeService.toggleDarkMode();
   }
 
   isDarkModeEnabled(): boolean {
     return this.darkModeService.isDarkModeEnabled();
+  }
+  getProgress(): number {
+    if (!this.quiz) return 0;
+    return ((this.currentQuestionIndex + 1) / this.quiz.questions.length) * 100;
   }
 }

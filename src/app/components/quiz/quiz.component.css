@@ -1,5 +1,5 @@
-.quiz-head {
-  display: flex;
+.container {
+  max-width: 1000px;
 }
 .quiz-header {
   display: flex;
@@ -19,6 +19,7 @@
   justify-content: start;
   align-items: center;
 }
+
 .question {
   font-size: 27px;
   font-weight: 600;
@@ -47,7 +48,8 @@ ul {
   width: 100%;
 }
 
-li {
+li,
+button {
   background-color: #ffffff;
   margin: 10px 0;
   padding: 15px;
@@ -58,6 +60,10 @@ li {
   display: flex;
   align-items: center;
   width: 100%;
+  box-sizing: border-box;
+}
+button {
+  @apply text-center flex justify-center;
 }
 
 li:hover .answer-label {
@@ -68,6 +74,7 @@ li:hover .answer-label {
 .selected {
   border: 2px solid #9333ea;
 }
+
 .selected .answer-label {
   background-color: #9333ea;
   color: white;
@@ -76,6 +83,7 @@ li:hover .answer-label {
 .correct {
   border-color: #26d782;
 }
+
 .correct .answer-label {
   background-color: #26d782;
   color: white;
@@ -84,25 +92,43 @@ li:hover .answer-label {
 .incorrect {
   border-color: #ee5454;
 }
+
+.incorrect .answer-label {
+  background-color: #ee5454;
+  color: white;
+}
+
+.hide-border {
+  border-color: transparent;
+}
+
 .nullanswer {
   color: #ee5454;
-  @apply text-center;
+  text-align: center;
 }
 
 .answer-label {
   font-weight: bold;
   margin-right: 10px;
   background-color: #f4f6fa;
-  @apply h-8 w-8 flex items-center justify-center;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
+}
+
+.icon {
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
 }
 
 button {
   background-color: #9333ea;
   color: #ffffff;
   border: none;
-  width: 100%;
-  padding: 15px;
   border-radius: 24px;
   cursor: pointer;
   font-size: 16px;
@@ -112,16 +138,33 @@ button {
 button:hover {
   background-color: #b68ed8;
 }
+
 .score-section {
   display: flex;
   gap: 20px;
 }
+
 .mark-section {
   display: flex;
-  border-radius: 0.375rem;
+  border-radius: 24px;
   flex-direction: column;
   background-color: white;
   padding: 1rem;
   justify-content: center;
   align-items: center;
+}
+
+.progress-container {
+  width: 100%;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 25px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #9333ea;
+  transition: width 0.4s ease;
 }

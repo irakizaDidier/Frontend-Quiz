@@ -1,5 +1,5 @@
 .section {
-  @apply flex mt-16;
+  @apply flex mt-16 justify-between;
 }
 .section-title {
   @apply flex;

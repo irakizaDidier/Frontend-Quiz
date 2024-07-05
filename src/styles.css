@@ -9,10 +9,12 @@ body {
   color: #374151;
   margin: 0;
   padding: 0;
+  background-image: url("assets/images/pattern-background-desktop-light.svg");
 }
 
 body.dark {
   background-color: #313e51;
+  background-image: url("assets/images/pattern-background-desktop-dark.svg");
 }
 
 h1,
@@ -38,7 +40,7 @@ p {
 }
 
 body.dark p {
-  @apply text-gray-400;
+  @apply text-white;
 }
 
 body.dark .quiz-card {
@@ -53,9 +55,16 @@ body.dark li {
   background-color: #3b4d66;
   @apply text-white;
 }
+body.dark li .answer-label {
+  background-color: #f6e7ff;
+  color: #3b4d66;
+}
+body.dark .mark-section {
+  background-color: #3b4d66;
+}
 
 .container {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 auto;
   padding: 20px;
   position: relative;
@@ -70,8 +79,8 @@ body.dark li {
 .toggle-switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 23px;
+  width: 40px;
+  height: 17px;
 }
 
 .toggle-switch input {
@@ -87,25 +96,25 @@ body.dark li {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #9333ea;
   transition: 0.4s;
-  border-radius: 34px;
+  border-radius: 24px;
 }
 
 .toggle-switch label:before {
   position: absolute;
   content: "";
-  height: 15px;
-  width: 15px;
-  left: 4px;
-  bottom: 4px;
+  height: 13px;
+  width: 13px;
+  left: 1px;
+  bottom: 2px;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
 }
 
 .toggle-switch input:checked + label {
-  background-color: #6200ea;
+  background-color: #9333ea;
 }
 
 .toggle-switch input:checked + label:before {
