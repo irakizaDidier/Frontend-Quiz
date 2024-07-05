@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Quizz } from '../../models/quizz.model';
 import { Result } from '../../models/quizz.model';
+import { DarkModeService } from '../../services/dark-mode.service';
 
 @Component({
   selector: 'app-quiz',
@@ -18,7 +19,7 @@ export class QuizComponent implements OnInit {
   answerSubmitted: boolean = false;
   nullanswer = '';
 
-  constructor() {}
+  constructor(private darkModeService: DarkModeService) {}
 
   ngOnInit(): void {}
 
@@ -86,5 +87,13 @@ export class QuizComponent implements OnInit {
     if (!this.quiz || !this.quiz.questions[this.currentQuestionIndex])
       return false;
     return this.quiz.questions[this.currentQuestionIndex].answer === option;
+  }
+
+  toggleDarkMode(): void {
+    this.darkModeService.toggleDarkMode();
+  }
+
+  isDarkModeEnabled(): boolean {
+    return this.darkModeService.isDarkModeEnabled();
   }
 }

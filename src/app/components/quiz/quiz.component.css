@@ -50,8 +50,8 @@ ul {
 li {
   background-color: #ffffff;
   margin: 10px 0;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 15px;
+  border-radius: 24px;
   cursor: pointer;
   transition: background-color 0.2s, border 0.2s;
   border: 2px solid transparent;
@@ -60,31 +60,41 @@ li {
   width: 100%;
 }
 
-li:hover {
-  background-color: #e0e0e0;
+li:hover .answer-label {
+  background-color: #f6e7ff;
+  color: #9333ea;
 }
 
 .selected {
-  background-color: #d3d3d3;
+  border: 2px solid #9333ea;
+}
+.selected .answer-label {
+  background-color: #9333ea;
+  color: white;
 }
 
 .correct {
-  border-color: green;
-  background-color: #e6f9e8;
+  border-color: #26d782;
+}
+.correct .answer-label {
+  background-color: #26d782;
+  color: white;
 }
 
 .incorrect {
-  border-color: red;
-  background-color: #f9e6e6;
+  border-color: #ee5454;
 }
 .nullanswer {
-  color: red;
+  color: #ee5454;
   @apply text-center;
 }
 
 .answer-label {
   font-weight: bold;
   margin-right: 10px;
+  background-color: #f4f6fa;
+  @apply h-8 w-8 flex items-center justify-center;
+  border-radius: 8px;
 }
 
 button {
@@ -92,8 +102,8 @@ button {
   color: #ffffff;
   border: none;
   width: 100%;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 15px;
+  border-radius: 24px;
   cursor: pointer;
   font-size: 16px;
   margin-top: 20px;

@@ -22,31 +22,27 @@
               'no-answer': answerSubmitted && !selectedAnswer
             }"
             (click)="selectAnswer(option)">
-            <span class="answer-label">{{ 'ABCD'[i] }}.</span> {{ option }}
+            <span class="answer-label">{{ 'ABCD'[i] }}</span> {{ option }}
           </li>
         </ul>
-        <button (click)="submitAnswer()">Submit
-          Answer</button>
+        <button (click)="submitAnswer()">Submit Answer</button>
         <p class="nullanswer">{{nullanswer}}</p>
       </div>
     </div>
   </div>
-
   <div *ngIf="showResults" class="score-section w-full">
     <div class="w-1/2">
-      <h1> <span class="font-normal">Quiz
-          completed</span> <br>
-        You scored...</h1>
+      <h1><span class="font-normal">Quiz completed</span> <br> You
+        scored...</h1>
     </div>
     <div class="w-1/2">
-      <div class="mark-section ">
+      <div class="mark-section">
         <h3>
           <img *ngIf="quiz.icon" [src]="quiz.icon" alt="{{ quiz.title }}" />
           {{ quiz.title }}
         </h3>
         <h1>{{ score }}</h1>
         <p>out of {{ quiz.questions.length }}</p>
-
       </div>
       <button (click)="restartQuiz()">Play Again</button>
     </div>
