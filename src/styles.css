@@ -111,3 +111,25 @@ body.dark li {
 .toggle-switch input:checked + label:before {
   transform: translateX(26px);
 }
+
+.moon-icon,
+.sun-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.moon-icon {
+  left: -30px;
+}
+
+.sun-icon {
+  right: -30px;
+}
+
+.moon-icon img,
+.sun-icon img {
+  width: 20px;
+  height: 20px;
+}

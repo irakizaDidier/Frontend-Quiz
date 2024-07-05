@@ -3,7 +3,20 @@
     <div class="toggle-switch">
       <input type="checkbox" id="darkModeToggle" (change)="toggleDarkMode()"
         [checked]="isDarkModeEnabled()">
-      <label for="darkModeToggle"></label>
+      <label for="darkModeToggle">
+        <span class="moon-icon">
+          <img *ngIf="!isDarkModeEnabled()"
+            src="assets/images/icon-moon-dark.svg">
+          <img *ngIf="isDarkModeEnabled()"
+            src="assets/images/icon-moon-light.svg">
+        </span>
+        <span class="sun-icon">
+          <img *ngIf="!isDarkModeEnabled()"
+            src="assets/images/icon-sun-dark.svg">
+          <img *ngIf="isDarkModeEnabled()"
+            src="assets/images/icon-sun-light.svg">
+        </span>
+      </label>
     </div>
   </div>
   <div *ngIf="!selectedQuiz">
