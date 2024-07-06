@@ -1,0 +1,35 @@
+<div *ngIf="question" class="question-container w-full">
+  <div class="w-1/2">
+    <p>Question {{ currentQuestionIndex + 1 }} of {{ totalQuestions }}</p>
+    <p class="question">{{ question.question }}</p>
+    <div class="progress-container">
+      <div class="progress-bar" [style.width.%]="getProgress()"></div>
+    </div>
+  </div>
+  <div class="w-1/2">
+    <ul class="answers-list">
+      <li *ngFor="let option of question.options; let i = index"
+        [ngClass]="{
+          'correct': answerSubmitted && isCorrectAnswer(option),
+          'incorrect': answerSubmitted && isIncorrectAnswer(option),
+          'selected': selectedAnswer === option,
+          'no-answer': answerSubmitted && !selectedAnswer,
+          'hide-border': incorrectAnswerSelected && isCorrectAnswer(option) && !isIncorrectAnswer(option)
+        }"
+        (click)="selectAnswer(option)">
+        <span class="answer-label">{{ 'ABCD'[i] }}</span> {{ option }}
+        <img *ngIf="answerSubmitted && isCorrectAnswer(option)"
+          src="assets/images/icon-correct.svg" class="icon" />
+        <img *ngIf="answerSubmitted && isIncorrectAnswer(option)"
+          src="assets/images/icon-incorrect.svg" class="icon" />
+      </li>
+    </ul>
+    <div class="buttons-container">
+      <button *ngIf="!answerSubmitted" (click)="checkAnswer()">Submit
+        Answer</button>
+      <button *ngIf="answerSubmitted" (click)="nextQuestionHandler()">Next
+        Question</button>
+    </div>
+    <p class="nullanswer">{{ nullanswer }}</p>
+  </div>
+</div>

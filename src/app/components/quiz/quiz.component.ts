@@ -1,6 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Quizz } from '../../models/quizz.model';
-import { Result } from '../../models/quizz.model';
+import { Quizz, Result } from '../../models/quizz.model';
 import { DarkModeService } from '../../services/dark-mode.service';
 
 @Component({
@@ -69,24 +68,6 @@ export class QuizComponent implements OnInit {
     this.quizRestarted.emit();
   }
 
-  isCorrectAnswer(option: string): boolean {
-    if (!this.results[this.currentQuestionIndex]) return false;
-    return this.results[this.currentQuestionIndex].correctAnswer === option;
-  }
-
-  isSelectedAnswer(option: string): boolean {
-    if (!this.results[this.currentQuestionIndex]) return false;
-    return this.results[this.currentQuestionIndex].selectedAnswer === option;
-  }
-
-  isIncorrectAnswer(option: string): boolean {
-    if (!this.results[this.currentQuestionIndex]) return false;
-    return (
-      this.results[this.currentQuestionIndex].correctAnswer !== option &&
-      this.results[this.currentQuestionIndex].selectedAnswer === option
-    );
-  }
-
   toggleDarkMode(): void {
     this.darkModeService.toggleDarkMode();
   }
@@ -94,6 +75,7 @@ export class QuizComponent implements OnInit {
   isDarkModeEnabled(): boolean {
     return this.darkModeService.isDarkModeEnabled();
   }
+
   getProgress(): number {
     if (!this.quiz) return 0;
     return ((this.currentQuestionIndex + 1) / this.quiz.questions.length) * 100;

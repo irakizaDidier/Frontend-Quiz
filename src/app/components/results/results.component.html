@@ -1,0 +1,16 @@
+<div *ngIf="quiz" class="score-section w-full">
+  <div class="w-1/2">
+    <h1><span class="font-normal">Quiz completed</span> <br> You scored...</h1>
+  </div>
+  <div class="w-1/2">
+    <div class="mark-section">
+      <h3>
+        <img *ngIf="quiz.icon" [src]="quiz.icon" alt="{{ quiz.title }}" />
+        {{ quiz.title }}
+      </h3>
+      <h1>{{ score }}</h1>
+      <p>out of {{ quiz.questions.length }}</p>
+    </div>
+    <button (click)="restart()">Play Again</button>
+  </div>
+</div>
