@@ -41,7 +41,7 @@ export class QuizComponent implements OnInit {
         this.incorrectAnswerSelected = true;
       }
       this.answerSubmitted = true;
-      this.nullanswer = ''; // Clear the message
+      this.nullanswer = '';
     } else {
       this.nullanswer = 'Please select an answer.';
     }
@@ -55,7 +55,7 @@ export class QuizComponent implements OnInit {
       this.showResults = true;
     }
     this.selectedAnswer = null;
-    this.nullanswer = ''; // Clear the message
+    this.nullanswer = '';
   }
 
   restartQuiz(): void {
@@ -64,7 +64,22 @@ export class QuizComponent implements OnInit {
     this.showResults = false;
     this.score = 0;
     this.selectedAnswer = null;
-    this.nullanswer = ''; // Clear the message
+    this.nullanswer = '';
     this.quizRestarted.emit();
+  }
+
+  getQuizClass(title: string): string {
+    switch (title.toLowerCase()) {
+      case 'html':
+        return 'html-quiz-icon';
+      case 'css':
+        return 'css-quiz-icon';
+      case 'javascript':
+        return 'javascript-quiz-icon';
+      case 'accessibility':
+        return 'accessibility-quiz-icon';
+      default:
+        return '';
+    }
   }
 }

@@ -2,11 +2,33 @@
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+  @apply items-center;
 }
 
 .quiz-icon {
   width: 40px;
   height: 40px;
+  border-radius: 8px;
+}
+
+.html-quiz-icon {
+  background-color: #fff1e9;
+  padding: 3px;
+}
+
+.css-quiz-icon {
+  background-color: #e0fdef;
+  padding: 3px;
+}
+
+.javascript-quiz-icon {
+  background-color: #ebf0ff;
+  padding: 3px;
+}
+
+.accessibility-quiz-icon {
+  background-color: #f6e7ff;
+  padding: 3px;
 }
 
 @media (max-width: 767px) {

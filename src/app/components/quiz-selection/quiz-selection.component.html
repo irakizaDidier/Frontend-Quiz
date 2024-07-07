@@ -1,7 +1,8 @@
 <div class="quiz-list">
   <div *ngFor="let quiz of quizzes" (click)="selectQuiz(quiz)"
     class="quiz-card">
-    <img [src]="quiz.icon" alt="{{ quiz.title }}" class="quiz-icon" />
+    <img [src]="quiz.icon" alt="{{ quiz.title }}" class="quiz-icon"
+      [ngClass]="getQuizClass(quiz.title)" />
     <h3>{{ quiz.title }}</h3>
   </div>
 </div>

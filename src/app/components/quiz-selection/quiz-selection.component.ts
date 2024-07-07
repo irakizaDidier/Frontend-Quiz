@@ -22,4 +22,19 @@ export class QuizSelectionComponent implements OnInit {
   selectQuiz(quiz: Quizz): void {
     this.quizSelected.emit(quiz);
   }
+
+  getQuizClass(title: string): string {
+    switch (title.toLowerCase()) {
+      case 'html':
+        return 'html-quiz-icon';
+      case 'css':
+        return 'css-quiz-icon';
+      case 'javascript':
+        return 'javascript-quiz-icon';
+      case 'accessibility':
+        return 'accessibility-quiz-icon';
+      default:
+        return '';
+    }
+  }
 }

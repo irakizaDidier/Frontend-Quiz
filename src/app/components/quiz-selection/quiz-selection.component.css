@@ -29,24 +29,41 @@
   width: 50px;
   height: 50px;
   margin-right: 10px;
+  border-radius: 8px;
+}
+
+.html-quiz-icon {
+  background-color: #fff1e9;
+}
+
+.css-quiz-icon {
+  background-color: #e0fdef;
+}
+
+.javascript-quiz-icon {
+  background-color: #ebf0ff;
+}
+
+.accessibility-quiz-icon {
+  background-color: #f6e7ff;
 }
 
 @media (max-width: 767px) {
-  .quiz-selection-card {
+  .quiz-card {
     width: 100%;
   }
 
-  .quiz-selection {
+  .quiz-list {
     padding: 10px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .quiz-selection-card {
+  .quiz-card {
     width: 80%;
   }
 
-  .quiz-selection {
+  .quiz-list {
     padding: 15px;
   }
 }
