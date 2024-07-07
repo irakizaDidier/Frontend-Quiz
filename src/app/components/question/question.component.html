@@ -30,6 +30,9 @@
       <button *ngIf="answerSubmitted" (click)="nextQuestionHandler()">Next
         Question</button>
     </div>
-    <p class="nullanswer">{{ nullanswer }}</p>
+    <div *ngIf="nullanswer" class="nullanswer-container">
+      <img src="assets/images/icon-incorrect.svg" class="nullanswer-icon" />
+      <p class="nullanswer">{{ nullanswer }}</p>
+    </div>
   </div>
 </div>

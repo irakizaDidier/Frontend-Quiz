@@ -8,7 +8,7 @@
         <img *ngIf="quiz.icon" [src]="quiz.icon" alt="{{ quiz.title }}" />
         {{ quiz.title }}
       </h3>
-      <h1>{{ score }}</h1>
+      <h1 class="score">{{ score }}</h1>
       <p>out of {{ quiz.questions.length }}</p>
     </div>
     <button (click)="restart()">Play Again</button>

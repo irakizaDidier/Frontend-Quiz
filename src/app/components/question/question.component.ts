@@ -21,6 +21,7 @@ export class QuestionComponent {
 
   selectAnswer(answer: string): void {
     if (!this.answerSubmitted) {
+      this.nullanswer = '';
       this.answerSelected.emit(answer);
     }
   }
@@ -44,8 +45,13 @@ export class QuestionComponent {
   }
 
   checkAnswer(): void {
-    if (!this.answerSubmitted && this.selectedAnswer) {
-      this.submitAnswer.emit();
+    if (!this.answerSubmitted) {
+      if (!this.selectedAnswer) {
+        this.nullanswer = 'Please select an answer';
+      } else {
+        this.nullanswer = '';
+        this.submitAnswer.emit();
+      }
     }
   }
 

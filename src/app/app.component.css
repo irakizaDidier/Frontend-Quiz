@@ -2,10 +2,44 @@
   @apply flex mt-16 justify-between;
 }
 .section-title {
-  @apply flex;
+  @apply flex flex-col;
+}
+.p {
+  color: #3b4d66;
+  @apply italic;
 }
 h1 {
-  font-size: 36px;
+  font-size: 60px;
   margin-bottom: 20px;
-  color: #1f2937;
+  color: #313e51;
+  font-weight: 50;
+}
+
+h1 strong {
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .section {
+    gap: 15px;
+  }
 }

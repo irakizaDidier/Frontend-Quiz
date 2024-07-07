@@ -41,6 +41,7 @@ export class QuizComponent implements OnInit {
         this.incorrectAnswerSelected = true;
       }
       this.answerSubmitted = true;
+      this.nullanswer = ''; // Clear the message
     } else {
       this.nullanswer = 'Please select an answer.';
     }
@@ -54,6 +55,7 @@ export class QuizComponent implements OnInit {
       this.showResults = true;
     }
     this.selectedAnswer = null;
+    this.nullanswer = ''; // Clear the message
   }
 
   restartQuiz(): void {
@@ -61,7 +63,8 @@ export class QuizComponent implements OnInit {
     this.results = [];
     this.showResults = false;
     this.score = 0;
-    this.nullanswer = '';
+    this.selectedAnswer = null;
+    this.nullanswer = ''; // Clear the message
     this.quizRestarted.emit();
   }
 }

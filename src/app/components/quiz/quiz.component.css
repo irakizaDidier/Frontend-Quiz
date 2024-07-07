@@ -8,3 +8,23 @@
   width: 40px;
   height: 40px;
 }
+
+@media (max-width: 767px) {
+  .quiz-card {
+    width: 100%;
+  }
+
+  .quiz-list {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .quiz-card {
+    width: 80%;
+  }
+
+  .quiz-list {
+    padding: 15px;
+  }
+}

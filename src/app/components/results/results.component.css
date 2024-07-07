@@ -1,6 +1,6 @@
 .score-section {
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 
 .mark-section {
@@ -12,11 +12,17 @@
   justify-content: center;
   align-items: center;
 }
+h1 {
+  font-size: 42px;
+}
+.score {
+  font-size: 5rem;
+}
 button {
   background-color: #9333ea;
   color: #ffffff;
   border: none;
-  border-radius: 24px;
+  border-radius: 19px;
   cursor: pointer;
   font-size: 16px;
   margin-top: 20px;
@@ -30,7 +36,6 @@ li,
 button {
   margin: 10px 0;
   padding: 15px;
-  border-radius: 24px;
   cursor: pointer;
   transition: background-color 0.2s, border 0.2s;
   border: 2px solid transparent;
@@ -38,4 +43,17 @@ button {
   align-items: center;
   width: 100%;
   box-sizing: border-box;
+}
+
+@media (max-width: 767px) {
+  .score-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .score-section {
+    gap: 15px;
+  }
 }

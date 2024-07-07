@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,11 +10,55 @@ body {
   margin: 0;
   padding: 0;
   background-image: url("assets/images/pattern-background-desktop-light.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 body.dark {
   background-color: #313e51;
   background-image: url("assets/images/pattern-background-desktop-dark.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 1024px) {
+  body {
+    background-image: url("assets/images/pattern-background-tablet-light.svg");
+  }
+
+  body.dark {
+    background-image: url("assets/images/pattern-background-tablet-dark.svg");
+  }
+
+  .toggle-switch-wrapper {
+    top: 20px;
+    right: 40px;
+  }
+
+  .container {
+    max-width: 750px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background-image: url("assets/images/pattern-background-mobile-light.svg");
+  }
+
+  body.dark {
+    background-image: url("assets/images/pattern-background-mobile-dark.svg");
+  }
+
+  .toggle-switch-wrapper {
+    top: 15px;
+    right: 20px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
 }
 
 h1,
@@ -55,14 +99,21 @@ body.dark li {
   background-color: #3b4d66;
   @apply text-white;
 }
+
 body.dark li .answer-label {
   background-color: #f6e7ff;
   color: #3b4d66;
 }
+body.dark .p {
+  color: #a4b0c8;
+}
 body.dark .mark-section {
   background-color: #3b4d66;
 }
-
+body.dark .nullanswer {
+  color: #fff;
+  text-align: center;
+}
 .container {
   max-width: 850px;
   margin: 0 auto;
