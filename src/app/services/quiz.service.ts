@@ -27,6 +27,7 @@ export class QuizService {
   constructor(private http: HttpClient) {}
 
   getQuizzes(): Observable<QuizData> {
+    console.log(Observable);
     return this.http.get<QuizData>(this.dataUrl);
   }
 }
