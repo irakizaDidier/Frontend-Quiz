@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { DarkModeService } from './services/dark-mode.service';
 import { Quizz } from './models/quizz.model';
+import { QuizSelectionComponent } from './components/quiz-selection/quiz-selection.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -18,7 +20,8 @@ describe('AppComponent', () => {
     };
 
     await TestBed.configureTestingModule({
-      declarations: [AppComponent],
+      declarations: [AppComponent, QuizSelectionComponent],
+      imports: [HttpClientTestingModule],
       providers: [{ provide: DarkModeService, useValue: darkModeServiceMock }],
     }).compileComponents();
   });
